@@ -5,8 +5,8 @@ let boardWidth = 360;
 let context;
 
 //initialisation du magicarpe (karp)
-let karpWidth = 48;
-let karpHeight = 48;
+let karpWidth = 62;
+let karpHeight = 62;
 let karpX = boardWidth/8;
 let karpY = boardHeight/2;
 let karpImg;
@@ -20,7 +20,7 @@ let karp = {
 
 //initialisation des tubes (pipes)
 let pipeArray = [];
-let pipeWidth = 64;
+let pipeWidth = 80;
 let pipeHeight = 512;
 let pipeX = boardWidth;
 let pipeY = 0;
@@ -31,7 +31,7 @@ let bottomPipeImg;
 //Initialisation de la physique et gravité
 let velocityX = -2; //rapidité du déplacement des tubes vers la gauche
 let velocityY = 0; //vitesse de saut du magicarpe
-let gravity = 0.2;
+let gravity = 0.3;
 
 let gameOver = false;
 let score = 0;
@@ -45,18 +45,18 @@ window.onload = function () {
     //chargement des images
     //magicarpe
     karpImg = new Image();
-    karpImg.src = "img/karpp.png";
+    karpImg.src = "img/karpv3.png";
     karpImg.onload = function () {
-        context.drawImage(karpImg, karp.x, karp.y, karp.width, karp.height);
+    context.drawImage(karpImg, karp.x, karp.y, karp.width, karp.height);
     };
 
     //tube haut
     topPipeImg = new Image();
-    topPipeImg.src = "img/toppipe.png";
+    topPipeImg.src = "img/toppipev3.png";
 
     //tube bas
     bottomPipeImg = new Image();
-    bottomPipeImg.src = "img/bottompipe.png";
+    bottomPipeImg.src = "img/bottompipev3.png";
 
     //animation
     requestAnimationFrame(update);
@@ -159,10 +159,8 @@ function moveKarp(e) {
             alert("Démarrer la partie ? ");
         }
     }
-    if (e.code == "KeyV") {
-        alert("key V");
-        console.log("c pressé");
-    }
+
+    //pause
     if (e.code == "Enter") {
         if(window.confirm("Voulez-vous recommencer la partie ? ")){
             alert("Début d'une nouvelle partie ! ");

@@ -3,9 +3,16 @@ body {
     text-align: center;
     display: flex;
     justify-content: center;
+    background-color: #0B0B41;
+    
+}
+
+canvas {
+    border: #DCDCF5 solid 10px;
 }
 
 #board {
-    background-color: red;
-    background-image : url("img/flappybirdbg.png");
+    background-image : url("img/flappykarpbg.png");
+    
+    
 }
