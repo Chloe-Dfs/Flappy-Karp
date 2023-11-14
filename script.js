@@ -4,6 +4,10 @@ let boardHeight = 640;
 let boardWidth = 360;
 let context;
 
+//initialisation des pages de jeu et boutons correspondants
+let pageJeu;
+let nouvellePartie;
+
 //initialisation du magicarpe (karp)
 let karpWidth = 62;
 let karpHeight = 62;
@@ -112,6 +116,7 @@ function update() {
     if (gameOver) {
         context.fillText("GAME OVER", 5, 90);
     }
+
 }
 
 
@@ -152,11 +157,11 @@ function moveKarp(e) {
 
         //reset du jeu
         if (gameOver) {
-            karp.y = karpY;
-            pipeArray = [];
-            score = 0;
-            gameOver = false;
-            alert("Démarrer la partie ? ");
+            //karp.y = karpY;
+            //pipeArray = [];
+            //score = 0;
+            //gameOver = false;
+            pageJeu = window.location.href = "gameover.html";
         }
     }
 
