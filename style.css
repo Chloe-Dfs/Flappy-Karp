@@ -9,10 +9,35 @@ body {
 
 canvas {
     border: #DCDCF5 solid 10px;
+    background-image : url("img/flappykarpbg.png");
 }
 
-#board {
-    background-image : url("img/flappykarpbg.png");
-    
-    
+/*Menu Principal*/
+.menuprincipal {
+    background-color: green;
+}
+
+.menuprincipal button {
+    height: 3rem;
+}
+
+
+/*Menu Game Over*/
+.gameovermenu {
+    background-color: red;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3rem;
+    padding: 5rem;
+
+    #buttonGO {
+        background-color: green;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.gameovermenu button {
+    margin: 2rem;
+    height: 3rem;
 }
