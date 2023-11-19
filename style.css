@@ -8,8 +8,23 @@ body {
 }
 
 canvas {
+    position: absolute;
     border: #DCDCF5 solid 10px;
+    
+    height: 640px;
+    width: 360px;
+}
+
+#board {
+    z-index: 1;
     background-image : url("img/flappykarpbg.png");
+}
+
+#boardGO {
+    height: 640px;
+    width: 360px;
+    z-index: 0;
+    background-color: red;
 }
 
 /*Menu Principal*/

@@ -4,9 +4,16 @@ let boardHeight = 640;
 let boardWidth = 360;
 let context;
 
+//tableau game over
+let boardGO;
+let boardGOHeight = 640;
+let boardGOWidth = 360;
+let contextGO;
+
 //initialisation des pages de jeu et boutons correspondants
-let pageJeu;
-let nouvellePartie;
+let pageJeu = 0;
+var nouvellePartie = document.createElement("BUTTON");
+var NG;
 
 //initialisation du magicarpe (karp)
 let karpWidth = 62;
@@ -46,6 +53,12 @@ window.onload = function () {
     board.width = boardWidth;
     context = board.getContext("2d");
 
+    boardGO = document.getElementById("boardGO");
+    boardGO.height = boardGOHeight;
+    boardGO.width = boardGOWidth;
+    contextGO = boardGO.getContext("2d");
+
+
     //chargement des images
     //magicarpe
     karpImg = new Image();
@@ -66,9 +79,7 @@ window.onload = function () {
     requestAnimationFrame(update);
     setInterval(placePipes, 2000); //toutes les 1.5sec
     document.addEventListener("keydown", moveKarp);
-
-
-};
+    
 
 function update() {
     requestAnimationFrame(update);
@@ -113,11 +124,32 @@ function update() {
     context.font = "45px sans-serif";
     context.fillText(score, 5, 45);
 
+    contextGO.fillStyle = "white";
+    contextGO.font = "25px sans-serif";
+
     if (gameOver) {
-        context.fillText("GAME OVER", 5, 90);
+        
+        //context.fillText("GAME OVER", 5, 90);
+        contextGO.fillText("APPUYER SUR la touche c POUR RECOMMENCER UNE PARTIE", 0, 80);
+    }
     }
 
-}
+
+   /* if (pageJeu == 1) {
+        //context.clearRect(0, 0, board.width, board.height);
+        //context.fillText("CACA", 10, 50); 
+
+        karp.y = karpY;
+        pipeArray = [];
+        score = 0;
+        gameOver = false;
+        pageJeu = 0;
+        
+        //NG = window.location.href = "index.html";
+        //nouvellePartie.appendChild(NG);
+        //document.body.appendChild(nouvellePartie);
+    };*/
+};
 
 
 function placePipes() {
@@ -155,14 +187,21 @@ function moveKarp(e) {
         velocityY = -4;
         
 
-        //reset du jeu
-        if (gameOver) {
-            //karp.y = karpY;
-            //pipeArray = [];
-            //score = 0;
-            //gameOver = false;
-            pageJeu = window.location.href = "gameover.html";
+        
+    }
+
+    //reset du jeu
+    if (gameOver) {
+        boardGO.style.zIndex = "1";
+        board.style.zIndex = "0";
+        
+
+        if (e.code == "KeyC") {
+            location.reload();
         }
+
+        
+        
     }
 
     //pause
@@ -180,3 +219,17 @@ function detectCollision(a, b) {
            a.y < b.y + b.height &&  
            a.y + a.height > b.y;
 }
+
+
+/* restart
+
+
+                karp.y = karpY;
+                pipeArray = [];
+                score = 0;
+                board.style.zIndex = "1";
+                boardGO.style.zIndex = "0";
+                gameOver = false;
+                alert("ca marche");
+
+                */
