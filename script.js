@@ -83,7 +83,7 @@ window.onload = function () {
         let y = 130;
         contextGO.drawImage(gameOverImg, x, y, 280, 60)
     }
-
+/*
     //magicarpe mort
     karpdead = new Image();
     karpdead.src = "img/karpdead.png";
@@ -93,7 +93,7 @@ window.onload = function () {
         let y = 250;
         contextGO.drawImage(karpdead, x, y, 150, 150)
     }
-
+*/
 
     //animation
     //requestAnimationFrame(update);
@@ -161,7 +161,8 @@ function update() {
     
 
     if (gameOver) {
-        contextGO.fillText("Appuie sur C pour recommencer", 45, 500);
+        contextGO.fillText("Appuie sur C pour recommencer,", 45, 445);
+        contextGO.fillText("B pour retourner au menu principal", 30, 475);
     }
     }
 
@@ -200,10 +201,7 @@ function placePipes() {
 function moveKarp(e) {
     if (e.code == "Space" || e.code == "ArrowTop" || e.code == "KeyX") {
         //saut du magicarpe
-        velocityY = -4;
-        
-
-        
+        velocityY = -4; 
     }
 
     //reset du jeu
@@ -213,11 +211,11 @@ function moveKarp(e) {
         
 
         if (e.code == "KeyC") {
-            location.reload();  
+            location.reload();
+        }  
+        if (e.code == "KeyB") {
+            location.href = "menup.html";
         }
-
-        
-        
     }
 
     //pause

@@ -6,7 +6,7 @@ body {
     background-color: #0B0B41;
     
 }
-
+/*Les tableaux*/
 canvas {
     position: absolute;
     border: #DCDCF5 solid 10px;
@@ -21,30 +21,78 @@ canvas {
     height: 640px;
     width: 360px;
     z-index: 0;
-    background-image : url("img/gameover.png");
+    background-image : url("img/gameoverV3.png");
 }
 
-.menuprincipal button {
-    height: 3rem;
+/*Menu principal*/
+
+.menuprincipal {
+    position: absolute;
+    background-image: url("img/flappykarpbg.png");
+    border: #DCDCF5 solid 10px;
+    width: 360px;
+    height: 640px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.menuprincipal img {
+    width: 80%;
 }
 
 
-/*Menu Game Over*/
-.gameovermenu {
-    background-color: red;
+#contenu {
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 3rem;
-    padding: 5rem;
-
-    #buttonGO {
-        background-color: green;
-        display: flex;
-        flex-direction: column;
-    }
+    align-items: center;
+    margin-top: 3rem;
+    height: 545px;
 }
 
-.gameovermenu button {
-    margin: 2rem;
-    height: 3rem;
+#menuPJouer {
+    width: 50%;
+    height: 2.5rem;
+    margin: 4rem;
+    border-radius: 1rem;
+    border : none;
+    background-color: #FF8B10;
+    transition: transform 0.3s ease;
+
+}
+
+#menuPJouer:hover {
+    background-color: orange;
+    transform: scale(1.2);
+}
+
+#menuPJouer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#bottom {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    background-color: #FF8B10;
+    padding-left: 1rem;
+    justify-content: space-between;
+    font-weight: bold;
+    border-radius: 20px 20px 0 0;
+}
+
+#bottom img {
+    margin: 10px;
+    width : 2rem;
+    height: 2rem;
+}
+
+#bottom a {
+    color: white;
+    text-decoration: none;
+}
+
+#bottom a:hover {
+    color: black;
+    
 }
