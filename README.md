@@ -1,5 +1,5 @@
 # Flappy-Karp
-A little Flappy Bird Game in JS with Magikarp Theme
+Le clone de Flappy-Bird sur le thème de Magicarpe ! (non officiel)
 
 [FR]
 
