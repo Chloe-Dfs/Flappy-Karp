@@ -10,10 +10,8 @@ let boardGOHeight = 640;
 let boardGOWidth = 360;
 let contextGO;
 
-//initialisation des pages de jeu et boutons correspondants
-let pageJeu = 0;
-var nouvellePartie = document.createElement("BUTTON");
-var NG;
+
+
 
 //initialisation du magicarpe (karp)
 let karpWidth = 62;
@@ -75,10 +73,44 @@ window.onload = function () {
     bottomPipeImg = new Image();
     bottomPipeImg.src = "img/bottompipev3.png";
 
+    //page game over 
+    //titre
+    gameOverImg = new Image();
+    gameOverImg.src = "img/gameovertitrev2.png";
+    
+    gameOverImg.onload = function () {
+        let x = 40;
+        let y = 130;
+        contextGO.drawImage(gameOverImg, x, y, 280, 60)
+    }
+
+    //magicarpe mort
+    karpdead = new Image();
+    karpdead.src = "img/karpdead.png";
+
+    karpdead.onload = function () {
+        let x = 110;
+        let y = 250;
+        contextGO.drawImage(karpdead, x, y, 150, 150)
+    }
+
+
     //animation
-    requestAnimationFrame(update);
+    //requestAnimationFrame(update);
     setInterval(placePipes, 2000); //toutes les 1.5sec
     document.addEventListener("keydown", moveKarp);
+
+    
+
+    document.addEventListener("keydown", startGameOnSpace);
+
+    function startGameOnSpace(event) {
+        if (event.code === "Space") {
+            document.removeEventListener("keydown", startGameOnSpace); // Retire l'écouteur après le démarrage
+            document.addEventListener("keydown", moveKarp); // Ajoute l'écouteur pour le mouvement du personnage
+            requestAnimationFrame(update); // Démarre l'animation
+        }
+    }
     
 
 function update() {
@@ -121,34 +153,18 @@ function update() {
 
     //score
     context.fillStyle = "white";
-    context.font = "45px sans-serif";
-    context.fillText(score, 5, 45);
+    context.font = "45px 'Press Start 2P', cursive";
+    context.fillText("Score : " + score, 5, 45);
 
     contextGO.fillStyle = "white";
-    contextGO.font = "25px sans-serif";
+    contextGO.font = "bold 18px 'Press Start 2P', cursive";
+    
 
     if (gameOver) {
-        
-        //context.fillText("GAME OVER", 5, 90);
-        contextGO.fillText("APPUYER SUR la touche c POUR RECOMMENCER UNE PARTIE", 0, 80);
+        contextGO.fillText("Appuie sur C pour recommencer", 45, 500);
     }
     }
 
-
-   /* if (pageJeu == 1) {
-        //context.clearRect(0, 0, board.width, board.height);
-        //context.fillText("CACA", 10, 50); 
-
-        karp.y = karpY;
-        pipeArray = [];
-        score = 0;
-        gameOver = false;
-        pageJeu = 0;
-        
-        //NG = window.location.href = "index.html";
-        //nouvellePartie.appendChild(NG);
-        //document.body.appendChild(nouvellePartie);
-    };*/
 };
 
 
@@ -197,7 +213,7 @@ function moveKarp(e) {
         
 
         if (e.code == "KeyC") {
-            location.reload();
+            location.reload();  
         }
 
         

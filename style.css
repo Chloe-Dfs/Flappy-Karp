@@ -10,9 +10,6 @@ body {
 canvas {
     position: absolute;
     border: #DCDCF5 solid 10px;
-    
-    height: 640px;
-    width: 360px;
 }
 
 #board {
@@ -24,12 +21,7 @@ canvas {
     height: 640px;
     width: 360px;
     z-index: 0;
-    background-color: red;
-}
-
-/*Menu Principal*/
-.menuprincipal {
-    background-color: green;
+    background-image : url("img/gameover.png");
 }
 
 .menuprincipal button {
