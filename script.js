@@ -10,6 +10,9 @@ let boardGOHeight = 640;
 let boardGOWidth = 360;
 let contextGO;
 
+//menu principal
+let mainMenu;
+let contextMP;
 
 
 
@@ -56,6 +59,11 @@ window.onload = function () {
     boardGO.width = boardGOWidth;
     contextGO = boardGO.getContext("2d");
 
+/*
+    mainMenu = document.getElementById("menuprincipalScore");
+    contextMP = mainMenu.getContext("2d");
+*/    
+
 
     //chargement des images
     //magicarpe
@@ -76,32 +84,18 @@ window.onload = function () {
     //page game over 
     //titre
     gameOverImg = new Image();
-    gameOverImg.src = "img/gameovertitrev2.png";
+    gameOverImg.src = "img/got2.png";
     
     gameOverImg.onload = function () {
-        let x = 40;
-        let y = 130;
-        contextGO.drawImage(gameOverImg, x, y, 280, 60)
+        let x = 55;
+        let y = 80;
+        contextGO.drawImage(gameOverImg, x, y, 240, 120)
     }
-/*
-    //magicarpe mort
-    karpdead = new Image();
-    karpdead.src = "img/karpdead.png";
-
-    karpdead.onload = function () {
-        let x = 110;
-        let y = 250;
-        contextGO.drawImage(karpdead, x, y, 150, 150)
-    }
-*/
 
     //animation
-    //requestAnimationFrame(update);
-    setInterval(placePipes, 2000); //toutes les 1.5sec
+
+    setInterval(placePipes, 2000);
     document.addEventListener("keydown", moveKarp);
-
-    
-
     document.addEventListener("keydown", startGameOnSpace);
 
     function startGameOnSpace(event) {
@@ -158,11 +152,15 @@ function update() {
 
     contextGO.fillStyle = "white";
     contextGO.font = "bold 18px 'Press Start 2P', cursive";
-    
+/*
+    contextMP.fillStyle = "black";
+    contextMP.fillText=("score :", 250,150);   
+*/  
 
     if (gameOver) {
-        contextGO.fillText("Appuie sur C pour recommencer,", 45, 445);
-        contextGO.fillText("B pour retourner au menu principal", 30, 475);
+        contextGO.fillText("Appuie sur C pour recommencer,", 42, 255);
+        contextGO.fillText("B pour retourner au menu principal", 30, 285);
+        contextGO.fillText("Score : " + score, 135, 385);
     }
     }
 
